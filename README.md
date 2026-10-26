@@ -15,6 +15,9 @@ Install Node.js 20 or later, then run `npm start` from this folder. Open http://
 - Case/punctuation-insensitive identification with explicit accepted aliases (no unreliable fuzzy grading).
 - Save and resume, missed-question rematches, 100 points per correct answer, current and best streaks, result breakdowns, and dark/light themes.
 - Neumorphic controls, colorful answer tiles and format accents, mobile single-column answers, and a wide-screen score sidebar. Motion honors reduced-motion preferences.
+- Mobile answer dock keeps Check/Next within reach. Draft answers survive leaving or refreshing. Starting Quick Quiz protects an unfinished round with a resume option.
+- Desktop shortcuts: 1–4 choose an option; Enter checks or advances outside text fields. Enter in an identification field submits normally.
+- Results include a filterable answer notebook for both correct and missed questions. The most recent completed round remains accessible from home.
 - Local browser storage only. No sign-in, tracking, external fonts, or API services.
 
 ## Render deployment (after GitHub review)
@@ -25,4 +28,4 @@ Run `npm test` for content and grading checks. Edit `public/questions.js` to cha
 
 ## Performance budgets
 
-No build step, runtime dependencies, external assets, or external fonts. Route `/`: combined JavaScript budget 55 KiB, CSS budget 30 KiB, total initial first-party assets budget 100 KiB (uncompressed). Local lab measurements are diagnostic, not field Core Web Vitals. Deployment targets remain LCP <= 2.5s, INP <= 200ms, CLS <= 0.1 at the 75th percentile; confirm field metrics after deployment and real usage.
+No build step, runtime dependencies, external assets, or external fonts. Route `/`: combined JavaScript budget 55 KiB, CSS budget 38 KiB (including mobile dock, navigation, and answer-notebook states), total initial first-party assets budget 100 KiB (uncompressed). Local lab measurements are diagnostic, not field Core Web Vitals. Deployment targets remain LCP <= 2.5s, INP <= 200ms, CLS <= 0.1 at the 75th percentile; confirm field metrics after deployment and real usage.

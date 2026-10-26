@@ -39,3 +39,13 @@ Earlier repeated-action checks on the same interaction implementation measured c
 Initial assets total approximately 65 KB uncompressed. JavaScript is approximately 34 KB (55 KiB budget); CSS is below 30 KiB; all assets are below the 100 KiB route budget. No runtime packages or image/font requests are required.
 
 These are individual local lab observations, not field Core Web Vitals or promises about Render. INP and 75th-percentile real-user metrics remain unverified until deployment and sufficient usage. Physical-phone testing and an independent accessibility audit were not performed.
+
+## Follow-up usability pass
+
+The deployed app.js was downloaded and its SHA-256 matched the local baseline exactly. Direct browser access to the hosted domain was denied by the environment; identical source was inspected locally instead.
+
+Retained the requested colorful neumorphic design and made targeted improvements rather than changing visual direction. Three main issues were corrected: oversized home introduction delayed the quiz; mobile checking/next actions fell below the viewport; unchecked answers disappeared on refresh. The introduction is shorter, mobile actions are anchored to a bottom dock with safe-area spacing and sufficient scroll clearance, and both typed and selected drafts now persist. Additional changes include Play/Progress navigation, explicit theme labels, keyboard shortcuts, protection for unfinished Quick Quiz rounds, accessible feedback focus, and a filterable answer notebook for all results.
+
+Visual inspection covered desktop home, phone question/feedback, and phone dark-mode answer review. Browser checks verified draft recovery for both input types, 1–4 selection and Enter submission/progression, saved-round protection, notebook filters and scene expansion, re-opening completed results, and no script errors. Home/quiz overflow checks passed at 320, 390, 600, 768, 1024, 1440, and 1920 pixels, plus 200% CSS enlargement. Six content/selection tests and syntax checks pass.
+
+A measured initial navigation shift was fixed by rendering header navigation in the initial HTML rather than inserting it after load. Final local LCP/CLS: desktop 1440x1000 at normal CPU/network 100 ms / 0; simulated mobile 390x844 at 4x CPU, 150 ms latency, 1.6 Mbps download, cache disabled 1,020 ms / 0. Sample click-to-second-frame times for launch/reveal were 8.2–8.4 ms desktop and 35.6–42.4 ms simulated mobile; these are diagnostics, not INP. Assets total approximately 77 KB uncompressed; JavaScript below 55 KiB, CSS below the revised 38 KiB budget, total below 100 KiB. Field performance and physical-phone keyboard behavior remain unverified.
